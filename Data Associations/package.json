@@ -1,0 +1,15 @@
+{
+  "name": "data-associations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "references.js",
+  "dependencies": {
+    "mongoose": "^5.8.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
