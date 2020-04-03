@@ -24,25 +24,35 @@ var userSchema = new mongoose.Schema({
 var User = mongoose.model("User", userSchema);
 
 
-Post.create({
-    title: "Helo friend pt 2",
-    content: "hdshdkshdksjdhksjdhskdjshdkjahdkjashdksajdhaskjdhaskjdhskdjhdkajshd"
-}, function(err, post){
-    User.findOne({email: "dani@gmail.com"}, function(err, foundUser){
-        if(err){
-            console.log(err);
-        } else {
-            foundUser.posts.push(post);
-            foundUser.save(function(err, data){
-                if(err){
-                    console.log(err);
-                } else {
-                    console.log(data);
-                }
-            });
-        }
-    });
+// Post.create({
+//     title: "Helo friend pt 2",
+//     content: "hdshdkshdksjdhksjdhskdjshdkjahdkjashdksajdhaskjdhaskjdhskdjhdkajshd"
+// }, function(err, post){
+//     User.findOne({email: "dani@gmail.com"}, function(err, foundUser){
+//         if(err){
+//             console.log(err);
+//         } else {
+//             foundUser.posts.push(post);
+//             foundUser.save(function(err, data){
+//                 if(err){
+//                     console.log(err);
+//                 } else {
+//                     console.log(data);
+//                 }
+//             });
+//         }
+//     });
+// });
+
+
+User.findOne({email: "dani@gmail.com"}).populate("posts").exec(function(err, user){
+    if(err){
+        console.log(err);
+    } else {
+        console.log(user);
+    }
 });
+
 
 // User.create({
 //     email: "dani@gmail.com",
